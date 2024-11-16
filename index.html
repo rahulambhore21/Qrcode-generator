@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Text</h1>
+        <input type="text" placeholder="Enter Text" id="box">
+        <div class="img"><img src="" class="qrCode"></div>
+        <button onclick="generateQR()" id="btn">Generate Qr</button>
+    </div>
+</body>
+<script>
+    const Btn = document.getElementById("btn");
+    const inputBox = document.getElementById("box");
+    const qrImg = document.querySelector(".qrCode");
+
+    function generateQR(){
+        if(inputBox.value.length>0){
+            qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + inputBox.value;
+        qrImg.classList.add("show");
+        qrImg.classList.remove("qrCode");
+        }
+        else{
+            alert("Dont Do Bakchodi");
+        }
+    }
+</script>
+</html>
