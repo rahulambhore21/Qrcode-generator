@@ -9,15 +9,18 @@
 <body>
     <div class="container">
         <h1>Enter Text</h1>
+        <audio src="./Bakchodi Mat Kar.mp3" id="sound"></audio>
         <input type="text" placeholder="Enter Text" id="box">
         <div class="img"><img src="" class="qrCode"></div>
         <button onclick="generateQR()" id="btn">Generate Qr</button>
     </div>
 </body>
 <script>
+    const img = document.querySelector(".img");
     const Btn = document.getElementById("btn");
     const inputBox = document.getElementById("box");
     const qrImg = document.querySelector(".qrCode");
+    const sound = document.getElementById("sound");
 
     function generateQR(){
         if(inputBox.value.length>0){
@@ -26,7 +29,12 @@
         qrImg.classList.remove("qrCode");
         }
         else{
-            alert("Bakchodi Mat Kar Laude 🤬");
+            img.innerHTML = "Bakchodi Mat Kar Laude 🤬"
+            sound.play();
+        sound.volume = 1.0;
+        setTimeout(() => {
+           img.innerHTML = "";
+        }, 5000);
         }
     }
 </script>
